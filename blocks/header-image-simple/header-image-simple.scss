@@ -1,0 +1,46 @@
+@use "../../source/scss/base/theme" as *;
+@use "../../source/scss/base/mixins" as *;
+@use "../../source/scss/base/extends" as *;
+@use "../../source/scss/base/functions" as *;
+
+.header-image-simple {
+	h1 {
+		color: $color-white;
+		margin: 0;
+		position: relative;
+		z-index: 1;
+	}
+
+	.image-background {
+		display: flex;
+		align-items: flex-end;
+		max-height: rem-calc(400);
+		position: relative;
+		padding: 2rem;
+		overflow: hidden;
+
+		.image {
+			height: 100%;
+			left: 0;
+			object-fit: cover;
+			object-position: center;
+			position: absolute;
+			top: 0;
+			width: 100%;
+			z-index: -1;
+		}
+
+		&::after {
+			content: "";
+			position: absolute;
+			inset: 0;
+			background: linear-gradient(180deg, rgba(0, 0, 0, 0) 33.25%, rgba(0, 0, 0, 0.4) 100%);
+			z-index: 0;
+		}
+	}
+
+	.rsbtn {
+		margin-bottom: 0;
+		margin-top: 2rem;
+	}
+}

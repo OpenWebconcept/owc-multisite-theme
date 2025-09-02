@@ -1,0 +1,93 @@
+// Theme colors
+$color-primary: var(--strl-color-primary);
+$color-primary-contrast: var(--strl-color-primary-contrast);
+$color-primary-link: var(--strl-color-primary-link);
+$color-primary-button: var(--strl-color-primary-button);
+$color-primary-button-bg: var(--strl-color-primary-button-bg);
+$color-primary-button-text: var(--strl-color-primary-button-text);
+$color-primary-button-bg-hover: var(--strl-color-primary-button-bg-hover);
+
+$color-secondary: var(--strl-color-secondary);
+$color-secondary-contrast: var(--strl-color-secondary-contrast);
+$color-secondary-link: var(--strl-color-secondary-link);
+$color-secondary-button: var(--strl-color-secondary-button);
+$color-secondary-button-bg: var(--strl-color-secondary-button-bg);
+$color-secondary-button-text: var(--strl-color-secondary-button-text);
+$color-secondary-button-bg-hover: var(--strl-color-secondary-button-bg-hover);
+
+$color-tertiary: var(--strl-color-tertiary);
+$color-tertiary-contrast: var(--strl-color-tertiary-contrast);
+$color-tertiary-link: var(--strl-color-tertiary-link);
+$color-tertiary-button: var(--strl-color-tertiary-button);
+$color-tertiary-button-bg: var(--strl-color-tertiary-button-bg);
+$color-tertiary-button-text: var(--strl-color-tertiary-button-text);
+$color-tertiary-button-bg-hover: var(--strl-color-tertiary-button-bg-hover);
+
+$color-quaternary: var(--strl-color-quaternary);
+$color-quaternary-contrast: var(--strl-color-quaternary-contrast);
+$color-quaternary-link: var(--strl-color-quaternary-link);
+$color-quaternary-button: var(--strl-color-quaternary-button);
+$color-quaternary-button-bg: var(--strl-color-quaternary-button-bg);
+$color-quaternary-button-text: var(--strl-color-quaternary-button-text);
+$color-quaternary-button-bg-hover: var(--strl-color-quaternary-button-bg-hover);
+
+// Basic colors
+$color-black: var(--strl-color-black);
+$color-white: var(--strl-color-white);
+$color-gray: var(--strl-color-gray);
+
+$color-textcolor: var(--strl-text-color);
+$website-bg: var(--strl-website-bg);
+$color-link: var(--strl-link-color);
+
+// Utility Colors
+$color-success: #3adb76;
+$color-warning: #ffae00;
+$color-alert: #cd4c15;
+$color-input-search: #1a1a1a;
+
+// FONTS
+$bodytext: var(--strl-base-font);
+$header: var(--strl-headings-font);
+$icons: "Font Awesome\ 6 Pro", "Font Awesome\ 6 Brands";
+
+@font-face {
+	font-family: "Nohemi";
+	font-display: swap;
+	src:
+		url(../webfonts/Nohemi-Bold.woff2) format("woff2");
+}
+
+@font-face {
+	font-family: "DBK";
+	font-display: swap;
+	src:
+		url(../webfonts/Den-Bosch-Kapitaal.woff) format("woff"),
+		url(../webfonts/Den-Bosch-Kapitaal.woff2) format("woff2");
+}
+
+// ANIMATIONS
+$duration: 0.2s;
+$easing: cubic-bezier(0.17, 0.67, 0.83, 0.67);
+$transition: $duration $easing;
+
+// Z-INDEX
+$z-index-negative: -1;
+$z-index-default: 0;
+$z-index-overlay: 1;
+$z-index-heavy: 100;
+$z-index-screen-reader: 1000;
+
+// GLOBAL
+$grid-container: 1200;
+$header-height: 99px; // Used for submenu calculations
+$m-header-height: 125px; // Used for submenu calculations
+$border-radius: 4px;
+$shadow: 0 4px 25px 0 rgba(0, 0, 0, 0.05);
+
+// Spacing
+$padding-mobile: 0;
+$padding-tablet: 2.5rem;
+
+$margin-mobile: 3rem;
+$margin-tablet: 5rem;

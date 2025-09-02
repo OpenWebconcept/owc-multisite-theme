@@ -1,0 +1,76 @@
+@use "../../source/scss/base/theme" as *;
+@use "../../source/scss/base/mixins" as *;
+@use "../../source/scss/base/extends" as *;
+@use "../../source/scss/base/functions" as *;
+
+.download {
+	background-color: $color-white;
+	padding: 0;
+
+	&:hover {
+		.inner {
+			i {
+				background-color: $color-tertiary-button;
+			}
+		}
+	}
+
+	.inner {
+		line-height: rem-calc(40);
+		padding: 1rem 1.5rem;
+		position: relative;
+
+		.strong {
+			color: $color-textcolor;
+			display: inline-block;
+			font-size: 1rem;
+			font-weight: 700;
+			line-height: 1.5;
+
+			span {
+				background-color: $color-primary;
+				border-radius: 4px;
+				color: $color-primary-contrast;
+				display: inline-block;
+				font-size: 0.75rem;
+				line-height: 0.75rem;
+				margin-left: 10px;
+				padding: 0.25rem;
+				text-transform: uppercase;
+			}
+		}
+
+		i {
+			align-items: center;
+			background-color: $color-tertiary;
+			border-radius: 50px;
+			color: $color-tertiary-contrast;
+			display: flex;
+			height: 40px;
+			justify-content: center;
+			margin: 0 0 0 auto;
+			position: absolute;
+			right: 1.5rem;
+			top: 1rem;
+			width: 40px;
+			transition: $transition;
+		}
+
+		.overlay-link {
+			display: block;
+			height: 100%;
+			left: 0;
+			position: absolute;
+			top: 0;
+			width: 100%;
+		}
+	}
+
+	&:hover {
+		cursor: pointer;
+
+		strong {
+			text-decoration: underline;
+		}
+	}
+}

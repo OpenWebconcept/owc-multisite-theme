@@ -1,0 +1,16 @@
+@use "../../source/scss/base/theme" as *;
+@use "../../source/scss/base/mixins" as *;
+@use "../../source/scss/base/extends" as *;
+@use "../../source/scss/base/functions" as *;
+
+.article-header-image {
+	margin-block: 0;
+	margin-bottom: -72px;
+
+	img {
+		border-radius: $border-radius;
+		max-height: rem-calc(400);
+		object-fit: cover;
+		width: 100%;
+	}
+}

@@ -1,0 +1,520 @@
+@use "theme" as *;
+// Fix for elements with bg class, nested within other bg-class
+.bg-secondary .bg-primary,
+.bg-tertiary .bg-primary,
+.bg-quaternary .bg-primary,
+.bg-primary {
+	background-color: $color-primary;
+	color: $color-primary-contrast;
+
+	.h1,
+	h1,
+	.h2,
+	h2,
+	.h3,
+	h3,
+	.h4,
+	h4,
+	.h5,
+	h5,
+	.h6,
+	h6 {
+		color: $color-primary-contrast;
+	}
+
+	p,
+	ol li,
+	ul li,
+	span,
+	.text,
+	.text-column {
+		color: $color-primary-contrast;
+
+		a,
+		button {
+			&:not(.btn) {
+				color: $color-primary-link;
+
+				&:hover,
+				&:focus-visible {
+					color: $color-primary-link;
+				}
+			}
+		}
+	}
+
+	a,
+	button {
+		&:not(.btn) {
+			color: $color-primary-link;
+
+			&:hover,
+			&:focus-visible {
+				color: $color-primary-link;
+			}
+		}
+	}
+
+	blockquote {
+		border-left-color: $color-primary-contrast;
+		color: $color-primary-contrast;
+
+		&::before {
+			background-color: $color-primary-contrast;
+		}
+	}
+
+	.facetwp-checkbox {
+		&.checked {
+			label {
+				&::before {
+					background-color: $color-primary-button;
+					border-color: $color-primary-button;
+					color: $color-primary-contrast;
+				}
+			}
+		}
+
+		label {
+			color: $color-primary-contrast;
+
+			&::before {
+				border-color: $color-primary-contrast;
+			}
+
+			.facetwp-display-value,
+			.facetwp-counter {
+				color: $color-primary-contrast;
+			}
+		}
+	}
+
+	.pagination {
+		.facetwp-type-pager {
+			.facetwp-pager {
+				.facetwp-page {
+					background-color: $color-primary-button;
+					border-color: $color-primary-button;
+					color: $color-primary-contrast;
+
+					&.active,
+					&:hover {
+						background-color: $color-primary-contrast;
+						border-color: $color-primary-contrast;
+						color: $color-primary;
+					}
+				}
+			}
+		}
+	}
+}
+
+// Fix for elements with bg class, nested within other bg-class
+.bg-primary .bg-secondary,
+.bg-tertiary .bg-secondary,
+.bg-quaternary .bg-secondary,
+.bg-secondary {
+	background-color: $color-secondary;
+	color: $color-secondary-contrast;
+
+	.h1,
+	h1,
+	.h2,
+	h2,
+	.h3,
+	h3,
+	.h4,
+	h4,
+	.h5,
+	h5,
+	.h6,
+	h6 {
+		color: $color-secondary-contrast;
+	}
+
+	p,
+	ol li,
+	ul li,
+	span,
+	.text,
+	.text-column {
+		color: $color-secondary-contrast;
+
+		a,
+		button {
+			&:not(.btn):not(.link-tag) {
+				color: $color-secondary-link;
+
+				&:hover,
+				&:focus-visible {
+					color: $color-secondary-link;
+				}
+			}
+		}
+	}
+
+	a,
+	button {
+		&:not(.btn) {
+			color: $color-secondary-link;
+
+			&:hover,
+			&:focus-visible {
+				color: $color-secondary-link;
+			}
+		}
+	}
+
+	blockquote {
+		border-left-color: $color-secondary-contrast;
+		color: $color-secondary-contrast;
+
+		&::before {
+			background-color: $color-secondary-contrast;
+		}
+	}
+
+	.facetwp-checkbox {
+		&.checked {
+			label {
+				&::before {
+					background-color: $color-secondary-button;
+					border-color: $color-secondary-button;
+					color: $color-secondary-contrast;
+				}
+			}
+		}
+
+		label {
+			color: $color-secondary-contrast;
+
+			&::before {
+				border-color: $color-secondary-contrast;
+			}
+
+			.facetwp-display-value,
+			.facetwp-counter {
+				color: $color-secondary-contrast;
+			}
+		}
+	}
+
+	.pagination {
+		.facetwp-type-pager {
+			.facetwp-pager {
+				.facetwp-page {
+					background-color: $color-secondary-button;
+					border-color: $color-secondary-button;
+					color: $color-secondary-contrast;
+
+					&.active,
+					&:hover {
+						background-color: $color-secondary-contrast;
+						border-color: $color-secondary-contrast;
+						color: $color-secondary;
+					}
+				}
+			}
+		}
+	}
+}
+
+// Fix for elements with bg class, nested within other bg-class
+.bg-primary .bg-tertiary,
+.bg-secondary .bg-tertiary,
+.bg-quaternary .bg-tertiary,
+.bg-tertiary {
+	background-color: $color-tertiary;
+	color: $color-tertiary-contrast;
+
+	.h1,
+	h1,
+	.h2,
+	h2,
+	.h3,
+	h3,
+	.h4,
+	h4,
+	.h5,
+	h5,
+	.h6,
+	h6 {
+		color: $color-tertiary-contrast;
+	}
+
+	p,
+	ol li,
+	ul li,
+	span,
+	.text,
+	.text-column {
+		color: $color-tertiary-contrast;
+
+		a,
+		button {
+			&:not(.btn) {
+				color: $color-tertiary-link;
+
+				&:hover,
+				&:focus-visible {
+					color: $color-tertiary-link;
+				}
+			}
+		}
+	}
+
+	a,
+	button {
+		&:not(.btn) {
+			color: $color-tertiary-link;
+
+			&:hover,
+			&:focus-visible {
+				color: $color-tertiary-link;
+			}
+		}
+	}
+
+	blockquote {
+		border-left-color: $color-tertiary-contrast;
+		color: $color-tertiary-contrast;
+
+		&::before {
+			background-color: $color-tertiary-contrast;
+		}
+	}
+
+	.facetwp-checkbox {
+		&.checked {
+			label {
+				&::before {
+					background-color: $color-tertiary-button;
+					border-color: $color-tertiary-button;
+					color: $color-tertiary-contrast;
+				}
+			}
+		}
+
+		label {
+			color: $color-tertiary-contrast;
+
+			&::before {
+				border-color: $color-tertiary-contrast;
+			}
+
+			.facetwp-display-value,
+			.facetwp-counter {
+				color: $color-tertiary-contrast;
+			}
+		}
+	}
+
+	.pagination {
+		.facetwp-type-pager {
+			.facetwp-pager {
+				.facetwp-page {
+					background-color: $color-tertiary-button;
+					border-color: $color-tertiary-button;
+					color: $color-tertiary-contrast;
+
+					&.active,
+					&:hover {
+						background-color: $color-tertiary-contrast;
+						border-color: $color-tertiary-contrast;
+						color: $color-tertiary;
+					}
+				}
+			}
+		}
+	}
+}
+
+// Fix for elements with bg class, nested within other bg-class
+.bg-primary .bg-quaternary,
+.bg-secondary .bg-quaternary,
+.bg-tertiary .bg-quaternary,
+.bg-quaternary {
+	background-color: $color-quaternary;
+	color: $color-quaternary-contrast;
+
+	.h1,
+	h1,
+	.h2,
+	h2,
+	.h3,
+	h3,
+	.h4,
+	h4,
+	.h5,
+	h5,
+	.h6,
+	h6 {
+		color: $color-quaternary-contrast;
+	}
+
+	p,
+	ol li,
+	ul li,
+	span,
+	.text,
+	.text-column {
+		color: $color-quaternary-contrast;
+
+		a,
+		button {
+			&:not(.btn) {
+				color: $color-quaternary-link;
+
+				&:hover,
+				&:focus-visible {
+					color: $color-quaternary-link;
+				}
+			}
+		}
+	}
+
+	a,
+	button {
+		&:not(.btn) {
+			color: $color-quaternary-link;
+
+			&:hover,
+			&:focus-visible {
+				color: $color-quaternary-link;
+			}
+		}
+	}
+
+	blockquote {
+		border-left-color: $color-quaternary-contrast;
+		color: $color-quaternary-contrast;
+
+		&::before {
+			background-color: $color-quaternary-contrast;
+		}
+	}
+
+	.facetwp-checkbox {
+		&.checked {
+			label {
+				&::before {
+					background-color: $color-quaternary-button;
+					border-color: $color-quaternary-button;
+					color: $color-quaternary-contrast;
+				}
+			}
+		}
+
+		label {
+			color: $color-quaternary-contrast;
+
+			&::before {
+				border-color: $color-quaternary-contrast;
+			}
+
+			.facetwp-display-value,
+			.facetwp-counter {
+				color: $color-quaternary-contrast;
+			}
+		}
+	}
+
+	.pagination {
+		.facetwp-type-pager {
+			.facetwp-pager {
+				.facetwp-page {
+					background-color: $color-quaternary-button;
+					border-color: $color-quaternary-button;
+					color: $color-quaternary-contrast;
+
+					&.active,
+					&:hover {
+						background-color: $color-quaternary-contrast;
+						border-color: $color-quaternary-contrast;
+						color: $color-quaternary;
+					}
+				}
+			}
+		}
+	}
+}
+
+.bg-primary .bg-white,
+.bg-secondary .bg-white,
+.bg-tertiary .bg-white,
+.bg-quaternary .bg-white,
+.bg-white {
+	background-color: $color-white;
+	color: $color-textcolor;
+
+	.h1,
+	h1,
+	.h2,
+	h2,
+	.h3,
+	h3,
+	.h4,
+	h4,
+	.h5,
+	h5,
+	.h6,
+	h6 {
+		color: $color-textcolor;
+	}
+
+	p,
+	ol li,
+	ul li,
+	span,
+	.text,
+	.text-column {
+		color: $color-textcolor;
+
+		a,
+		button {
+			&:not(.btn) {
+				color: $color-link;
+
+				&:hover,
+				&:focus-visible {
+					color: $color-link;
+				}
+			}
+		}
+	}
+
+	a,
+	button {
+		&:not(.btn) {
+			color: $color-link;
+
+			&:hover,
+			&:focus-visible {
+				color: $color-link;
+			}
+		}
+	}
+
+	.facetwp-checkbox {
+		label {
+			&::before {
+				border-color: $color-textcolor;
+			}
+		}
+
+		&.checked {
+			label {
+				&::before {
+					background-color: $color-primary;
+					border-color: $color-primary;
+					color: $color-white;
+				}
+			}
+		}
+
+		.facetwp-display-value,
+		.facetwp-counter {
+			color: $color-textcolor;
+		}
+	}
+}

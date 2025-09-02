@@ -1,0 +1,269 @@
+@use "../../source/scss/base/theme" as *;
+@use "../../source/scss/base/mixins" as *;
+@use "../../source/scss/base/extends" as *;
+@use "../../source/scss/base/functions" as *;
+
+.publications-overview {
+	.facetwp-selection-value {
+		@extend %button;
+		background-image: none;
+		padding: 0.25rem 0.5rem;
+
+		@include desktop {
+			padding: rem-calc(10 14);
+		}
+	}
+
+	.custom-filters {
+		@include zoomed-in {
+			overflow-y: scroll;
+		}
+	}
+
+	.filters {
+		@include desktop {
+			border-radius: $border-radius;
+			box-shadow: $shadow;
+			padding: clamp-calc(16, 24);
+
+			.filter-seperator {
+				border-width: 2px;
+				margin: 0.75rem 0;
+
+				&.margin-large {
+					margin: 1.5rem 0;
+				}
+			}
+		}
+
+		h2 {
+			color: $color-black;
+			margin-bottom: 1.5rem;
+		}
+
+		.filter-accordion {
+			summary {
+				list-style-type: none;
+
+				&::-webkit-details-marker {
+					display: none;
+				}
+			}
+
+			&[open] {
+				.filter-title {
+					h3 {
+						text-decoration-color: transparent;
+					}
+
+					&::after {
+						content: "\f068";
+						transform: rotate(180deg);
+					}
+				}
+
+				.facetwp-facet:has(div) {
+					display: block;
+				}
+			}
+
+			.filter-title {
+				align-items: center;
+				cursor: pointer;
+				display: flex;
+				justify-content: space-between;
+				list-style-type: none;
+				margin-bottom: 0;
+				padding-bottom: 0.5rem;
+
+				&::after {
+					color: $color-black;
+					content: "\2b";
+					font-family: $icons;
+					font-size: 18px;
+					font-weight: 900;
+					transform: rotate(0);
+					transition: $transition;
+				}
+
+				&:hover h3 {
+					text-decoration-color: $color-primary;
+					text-decoration-thickness: 2px;
+					text-underline-offset: 4px;
+				}
+
+				h3 {
+					line-height: 120%;
+					margin-bottom: 0;
+					padding-bottom: 0;
+					text-decoration-color: transparent;
+					text-decoration-thickness: 2px;
+					text-decoration: underline;
+					text-underline-offset: 4px;
+					transition: $transition;
+					color: $color-black;
+				}
+
+				i {
+					pointer-events: none;
+				}
+			}
+
+			.facetwp-facet {
+				display: none;
+				margin: 0;
+			}
+		}
+
+		.search-wrapper {
+			align-items: center;
+			display: flex;
+			flex-direction: row;
+			gap: 0.5rem;
+			margin-bottom: 1.5rem;
+			position: relative;
+
+			.facetwp-type-search {
+				flex: 1;
+			}
+
+			.btn {
+				@extend %button, .primary;
+				height: 49px;
+				width: fit-content !important;
+			}
+
+			&.search-wrapper-mobile {
+				margin-top: 1rem;
+
+				input {
+					background-color: $color-white;
+					border: 1px solid $color-primary;
+				}
+
+				label {
+					text-align: center;
+				}
+			}
+		}
+	}
+
+	.close-offcanvas {
+		color: $color-black;
+		font-size: 1.5rem;
+		margin-left: 0.5rem;
+	}
+
+	.show-results {
+		z-index: 999;
+
+		@include zoomed-in {
+			bottom: auto;
+			left: auto;
+			position: relative;
+			right: auto;
+			width: 100%;
+		}
+
+		.facetwp-facet {
+			display: inline;
+		}
+
+	}
+
+	.facetwp-type-search {
+		margin-top: 0;
+	}
+
+	.facetwp-counter {
+		display: none;
+	}
+
+	.facetwp-checkbox:not(:last-child) {
+		margin-bottom: 0.75rem;
+	}
+
+	.facetwp-selections {
+		@include desktop {
+			display: inline-block;
+		}
+
+		ul {
+			margin-bottom: 0;
+			margin-left: 0;
+		}
+
+		.facetwp-selection-label {
+			display: none;
+		}
+
+		.facetwp-selection-value {
+			background-color: $color-primary-button;
+			border: 0;
+			color: $color-primary-contrast;
+			flex-direction: row-reverse;
+			font-size: rem-calc(13);
+			font-weight: 700 !important;
+			gap: 10px;
+			line-height: 175%;
+			padding: clamp-calc(4, 7) clamp-calc(7, 14);
+			text-transform: uppercase;
+
+			&:hover,
+			&:focus-visible {
+				background-color: $color-primary-contrast;
+				border-color: $color-primary-contrast;
+				color: $color-primary-button;
+			}
+		}
+	}
+
+	.selected-filters {
+		align-items: center;
+		color: $color-textcolor;
+		display: flex;
+		margin-bottom: 0.5rem;
+		margin-right: 0.5rem;
+
+		@include desktop {
+			margin-bottom: 0;
+		}
+	}
+
+	.resultsamount {
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: clamp-calc(16, 32);
+
+		.facetwp-type-pager {
+			align-items: center;
+			color: $color-textcolor;
+			display: flex;
+			margin: 0 0 0 auto;
+			white-space: nowrap;
+		}
+	}
+
+	.reset-filters {
+		display: flex;
+		gap: 1rem;
+		line-height: 23px;
+		margin-top: 1.5rem;
+		padding: rem-calc(12 16) !important;
+	}
+
+	.pagination {
+		margin-top: 1rem;
+
+		.facetwp-pager {
+			align-items: center;
+			display: flex;
+			gap: 0.5rem;
+			justify-content: center;
+		}
+
+		.facetwp-page {
+			margin-right: 0;
+		}
+	}
+}

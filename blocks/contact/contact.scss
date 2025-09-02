@@ -1,0 +1,49 @@
+@use "../../source/scss/base/theme" as *;
+@use "../../source/scss/base/mixins" as *;
+@use "../../source/scss/base/extends" as *;
+@use "../../source/scss/base/functions" as *;
+
+.contact {
+	h2 {
+		margin-bottom: 1rem;
+	}
+
+	.btn-group {
+		margin-top: 1.5rem;
+
+		ul {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 1rem;
+			margin: 0;
+
+			li {
+				display: inline-flex;
+
+				a {
+					display: flex;
+					align-items: center;
+					gap: 0.5rem;
+
+					.icon {
+						width: 20px;
+						height: 20px;
+						display: inline-block;
+						background-size: contain;
+						background-repeat: no-repeat;
+						background-position: center;
+						transition: $transition;
+					}
+
+					&.appointment {
+						&:hover {
+							.icon {
+								filter: none;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,137 @@
+@use "../../source/scss/base/theme" as *;
+@use "../../source/scss/base/mixins" as *;
+@use "../../source/scss/base/extends" as *;
+@use "../../source/scss/base/functions" as *;
+
+.header-image {
+	
+	&.has-image {
+		margin-block-start: 0;
+
+		.content-wrapper {
+			background-color: $color-white;
+			padding: clamp-calc(16, 32);
+		}
+	}
+
+	.header-image-grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: 2em 282px min-content;
+
+		@include desktop {
+			grid-template-rows: 16em 282px min-content;
+		}
+
+		&.no-image {
+			grid-template-rows: unset;
+		}
+
+		.background-wrapper {
+			grid-area: 1 / 1 / 3 / 2;
+		}
+
+		.header-image-content {
+			grid-area: 2 / 1 / 4 / 2;
+		}
+	}
+
+	.header-image-content {
+		position: relative;
+		z-index: 2;
+
+		.content-wrapper {
+			border-radius: $border-radius;
+
+			h1 {
+				margin-bottom: 1rem;
+			}
+
+			.text > *:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	.sidebar-1 {
+		border-radius: $border-radius;
+		margin-bottom: 0.5rem;
+		padding: clamp-calc(16, 24);
+
+		> * {
+			font-weight: 700;
+		}
+
+		p {
+			margin-bottom: 0;
+		}
+	}
+
+	.links {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+
+		.link {
+			border-radius: $border-radius;
+			display: block;
+			font-weight: 700;
+			padding: 0.75rem 1.8rem 0.75rem 1rem;
+			position: relative;
+			text-decoration: none;
+
+			&:hover {
+				text-decoration: underline;
+
+				&::after {
+					opacity: 0.75;
+					right: 0.5rem;
+				}
+			}
+
+			&::after {
+				content: "\f054";
+				font-family: $icons;
+				font-size: rem-calc(16);
+				position: absolute;
+				right: 1rem;
+				top: 50%;
+				transform: translateY(-50%);
+				transition: $transition;
+			}
+
+			&:nth-child(1n) {
+				background-color: $color-primary;
+				color: $color-primary-contrast;
+			}
+
+			&:nth-child(2n) {
+				background-color: $color-quaternary;
+				color: $color-quaternary-contrast;
+			}
+
+			&:nth-child(3n) {
+				background-color: $color-tertiary;
+				color: $color-tertiary-contrast;
+			}
+		}
+	}
+
+	.background-wrapper {
+		overflow: hidden;
+		position: relative;
+		z-index: 1;
+
+		img {
+			height: 100%;
+			object-fit: cover;
+			object-position: center;
+			width: 100%;
+		}
+	}
+
+	.rsbtn {
+		margin-bottom: 0;
+		margin-top: 2rem;
+	}
+}

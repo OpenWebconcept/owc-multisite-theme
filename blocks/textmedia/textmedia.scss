@@ -1,0 +1,93 @@
+@use "../../source/scss/base/theme" as *;
+@use "../../source/scss/base/mixins" as *;
+@use "../../source/scss/base/extends" as *;
+@use "../../source/scss/base/functions" as *;
+
+.textmedia {
+	.textmedia-section {
+		margin-bottom: 1.875rem;
+
+		&.center-vertically {
+			align-items: center;
+			display: flex;
+		}
+
+		.text-column {
+			display: flex;
+			flex-direction: column;
+			height: 100%;
+			max-width: 600px;
+
+			&.imagefirst {
+				margin-right: auto;
+			}
+
+			&:not(.imagefirst) {
+				margin-left: auto;
+			}
+
+			p > .btn-primary,
+			p > .btn-secondary {
+				margin-bottom: -1rem; // Removes the margin from the <p> that the WYSIWYG adds.
+			}
+		}
+
+		.media-column {
+			border-radius: $border-radius;
+			height: 100%;
+			margin-bottom: 1rem;
+			min-height: 207px;
+			position: relative;
+			width: 100%;
+
+			@include tablet {
+				margin-bottom: 0;
+			}
+
+			.imagedesc {
+				font-size: 0.875rem;
+				font-style: italic;
+				line-height: 16.8px;
+			}
+
+			.video-wrapper {
+				.video-thumbnail {
+					align-items: center;
+					aspect-ratio: 16 / 9;
+					display: flex;
+					height: 100%;
+					justify-content: center;
+					object-fit: cover;
+					padding: 2rem;
+				}
+			}
+
+			.play-button {
+				background-color: $color-primary-button;
+				border-radius: 50%;
+				box-shadow: $shadow;
+				color: $color-primary-contrast;
+				line-height: 1;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				padding: 1rem;
+				min-width: 3rem;
+				min-height: 3rem;
+				transition: $transition;
+				text-decoration: unset;
+
+				&:hover,
+				&:focus {
+					background-color: $color-primary-contrast;
+					color: $color-primary-button;
+					transform: translateY(-3px);
+
+					i {
+						color: $color-white;
+					}
+				}
+			}
+		}
+	}
+}

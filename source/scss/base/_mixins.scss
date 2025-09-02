@@ -1,0 +1,66 @@
+// Browser compatibility
+@use "theme" as *;
+
+@mixin background-props {
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+@mixin tablet {
+	@media screen and (min-width: 40rem) {
+		@content;
+	}
+}
+
+@mixin desktop {
+	@media screen and (min-width: 64rem) {
+		@content;
+	}
+}
+
+@mixin large {
+	@media screen and (min-width: 75rem) {
+		@content;
+	}
+}
+
+@mixin zoomed-in {
+	@media screen and (max-width: 480px) and (min-resolution: 3dppx) and (min-width: 1024px) {
+		@content;
+	}
+}
+
+// Used to compile CSS to display retina images.
+// Example: @include background-image-retina(logo, png, 210px, 70px);
+@mixin background-image-retina($file, $type, $width, $height) {
+	background-image: url("assets/images/") $file + "." + $type;
+
+	@media only screen and (-webkit-min-device-pixel-ratio: 2),
+		only screen and (-moz-min-device-pixel-ratio: 2),
+		only screen and (-o-min-device-pixel-ratio: 2 / 1),
+		only screen and (min-device-pixel-ratio: 2),
+		only screen and (min-resolution: 192dpi),
+		only screen and (min-resolution: 2dppx) {
+		background-image: url("assets/images/") $file + "@2x." + $type;
+		background-size: $width $height;
+	}
+}
+
+@mixin button-bg($bg, $color, $hover-color) {
+	background-color: $bg;
+	border-color: $bg;
+	color: $color;
+
+	svg {
+		fill: $color;
+	}
+
+	&:hover,
+	&:active {
+		background-color: $hover-color;
+		border-color: $hover-color;
+		color: $color;
+		transition: all 0.2s ease;
+	}
+}

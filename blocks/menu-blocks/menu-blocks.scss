@@ -1,0 +1,49 @@
+@use "../../source/scss/base/theme" as *;
+@use "../../source/scss/base/mixins" as *;
+@use "../../source/scss/base/extends" as *;
+@use "../../source/scss/base/functions" as *;
+
+.menu-blocks {
+	border-radius: $border-radius;
+
+	.menu-block {
+		ul {
+			margin: 0;
+
+			li {
+				display: block;
+
+				&:last-of-type {
+					a {
+						border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+					}
+				}
+
+				a {
+					border-top: 1px solid rgba(255, 255, 255, 0.25);
+					font-size: 1rem;
+					line-height: 1.2rem;
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					font-weight: 700;
+					padding: 1rem 0;
+
+					&::after {
+						content: "\f054";
+						font-family: $icons;
+						transition: $transition;
+					}
+
+					&:hover {
+						text-decoration: none;
+
+						&::after {
+							margin-right: 0.5rem;
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,61 @@
+@use '../../source/scss/base/theme' as *;
+@use '../../source/scss/base/mixins' as *;
+@use '../../source/scss/base/extends' as *;
+@use '../../source/scss/base/functions' as *;
+
+.overview-news {
+	position: relative;
+	
+	&.has-image {
+		margin-block: 0;
+
+		.title-row {
+			transform: translateY(-106px);
+
+			.title-card {
+				margin: 0;
+			}
+		}
+	}
+
+	.background-wrapper {
+		height: 300px;
+		width: 100%;
+
+		@include tablet {
+			height: 500px;
+		}
+
+		img {
+			height: 100%;
+			object-fit: cover;
+			object-position: center;
+			width: 100%;
+		}
+	}
+
+	.title-card {
+		background-color: $color-white;
+		border-radius: 4px;
+		box-shadow: $shadow;
+		padding: 1.5rem;
+		margin: 0 0 2rem;
+
+		@include tablet {
+			padding: 2rem;
+		}
+
+		@include desktop {
+			margin: 0 0 4rem;
+		}
+
+		h1 {
+			margin: 0 0 1rem;
+		}
+
+		p {
+			font-size: 1.125rem;
+			line-height: 1.5;
+		}
+	}
+}

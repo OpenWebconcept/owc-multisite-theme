@@ -1,0 +1,15 @@
+.ftpconfig
+.ftpignore
+.gitignore
+.editorconfig
+phpcs.ruleset.xml
+id_rsa
+.DS_Store
+.git
+source/*
+source/
+wp-config.php
+desktop.ini
+.csscomb.json
+.vscode
+.vscode/*

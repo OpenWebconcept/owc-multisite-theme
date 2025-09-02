@@ -1,0 +1,10 @@
+@use '../../source/scss/base/theme' as *;
+@use '../../source/scss/base/mixins' as *;
+@use '../../source/scss/base/extends' as *;
+@use '../../source/scss/base/functions' as *;
+
+.columnblock {
+	img {
+		width: 100%;
+	}
+}

@@ -1,0 +1,56 @@
+@use '../../source/scss/base/theme' as *;
+@use '../../source/scss/base/mixins' as *;
+@use '../../source/scss/base/extends' as *;
+@use '../../source/scss/base/functions' as *;
+
+.single-article-button {
+	.feedback-toggle {
+		border-radius: $border-radius;
+		display: none;
+		margin: 2rem 0 0;
+		padding: 2rem;
+
+		@include tablet {
+			max-width: 60%;
+		}
+
+		&.is-active {
+			display: block;
+		}
+
+		form {
+			.gform-body {
+				.gfield {
+					margin-bottom: 0;
+
+					.ginput_container_radio {
+						.gfield_radio {
+							align-items: flex-start;
+							display: flex;
+
+							.gchoice {
+								label {
+									margin-bottom: 0.375rem;
+								}
+
+								.input-replace {
+									margin-right: 0.5rem;
+								}
+							}
+						}
+					}
+
+					&.gfield--type-textarea {
+						.gform-field-label {
+							margin-bottom: 0;
+						}
+					}
+				}
+			}
+
+			.gform_footer {
+				margin-top: 0;
+			}
+		}
+	}
+}

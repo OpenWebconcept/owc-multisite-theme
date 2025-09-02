@@ -1,0 +1,59 @@
+@use "../../source/scss/base/theme" as *;
+@use "../../source/scss/base/mixins" as *;
+@use "../../source/scss/base/extends" as *;
+@use "../../source/scss/base/functions" as *;
+
+.publications-card {
+	border-radius: $border-radius;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	padding: clamp-calc(16, 24);
+	position: relative;
+
+	.card-header {
+		overflow: hidden;
+		position: relative;
+
+		.publish-date {
+			color: $color-textcolor;
+			font-size: rem-calc(14);
+		}
+	}
+
+	.card-inner {
+		align-items: flex-end;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		margin-top: 1rem;
+
+		@include tablet {
+			display: grid;
+			grid-template-columns: 2fr 1fr;
+		}
+
+		.content {
+			p {
+				margin-bottom: 0;
+			}
+		}
+
+		.btn {
+			margin-left: auto;
+		}
+	}
+
+	&:has(.overlay-link:hover),
+	&:has(.overlay-link:focus) {
+		h3 {
+			text-decoration: underline;
+		}
+
+		.btn {
+			background-color: $color-primary-button;
+			border-color: $color-primary-button;
+			color: $color-primary-contrast;
+		}
+	}
+}

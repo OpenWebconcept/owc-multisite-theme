@@ -1,0 +1,120 @@
+@use "../../source/scss/base/theme" as *;
+@use "../../source/scss/base/mixins" as *;
+@use "../../source/scss/base/extends" as *;
+@use "../../source/scss/base/functions" as *;
+
+.news-card {
+	background: $color-white;
+	box-shadow: $shadow;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	position: relative;
+	transition: $transition;
+
+	.card-header {
+		position: relative;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+
+		.titlewrap {
+			order: 2;
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-start;
+			min-height: rem-calc(120px);
+			padding: 2rem;
+			padding-bottom: 0;
+
+			.title {
+				-webkit-box-orient: vertical;
+				display: -webkit-box;
+				-webkit-line-clamp: 3;
+				order: 2;
+				overflow: hidden;
+				width: 100%;
+			}
+
+			.date {
+				color: $color-textcolor;
+				display: block;
+				margin: 0 0 8px;
+				order: 1;
+			}
+		}
+
+		img {
+			background-position: center;
+			background-size: cover;
+			height: 100%;
+			object-fit: cover;
+			transition: $transition;
+			width: 100%;
+			height: rem-calc(200px);
+			order: 1;
+
+			@include desktop {
+				max-height: 208px;
+			}
+		}
+	}
+
+	&:hover {
+		.image {
+			transform: scale(1.05);
+		}
+
+		.title {
+			text-decoration: underline;
+		}
+
+		.btn {
+			background-color: $color-primary-button;
+			border-color: $color-primary-button;
+			color: $color-primary-contrast;
+		}
+	}
+
+	.content {
+		display: flex;
+		flex: 1;
+		flex-direction: column;
+		height: 100%;
+		padding: 2rem;
+		padding-top: 0;
+
+		> div {
+			display: flex;
+			flex-direction: column;
+			height: 100%;
+
+			.btn {
+				margin-top: auto;
+			}
+		}
+
+		span {
+			&:not(.btn) {
+				color: $color-textcolor;
+				display: block;
+				font-size: 1rem;
+				line-height: 1rem;
+			}
+
+			i {
+				margin-left: 1rem;
+			}
+		}
+
+		p {
+			font-size: 1rem;
+			hyphens: auto;
+			line-height: 1.5;
+
+			@include tablet {
+				font-size: 1.125rem;
+			}
+		}
+	}
+}

@@ -1,0 +1,488 @@
+// Not only our markup
+// scss-lint:disable IdSelector, QualifyingElement, ChainedClasses
+@use "theme" as *;
+@use "mixins" as *;
+@use "extends" as *;
+@use "functions" as *;
+
+.alertbar {
+	position: relative;
+	background-color: $color-alert;
+	transition: all 0.2s linear;
+	pointer-events: all;
+	min-height: 49px;
+	padding: 1rem 0;
+	overflow: hidden;
+	display: block;
+
+	.inner {
+		line-height: 16px;
+		position: relative;
+	}
+
+	&.inactive {
+		height: 0;
+		padding: 0;
+		pointer-events: none;
+		display: none;
+	}
+
+	.closealert {
+		cursor: pointer;
+		height: 18px;
+		position: absolute;
+		right: 0.9375rem;
+		top: 50%;
+		transform: translateY(-50%);
+		width: 18px;
+
+		&:focus {
+			outline: $color-black solid 2px;
+		}
+
+		svg {
+			height: 18px;
+			width: 18px;
+
+			path {
+				fill: $color-black !important;
+				transition: all 0.2s linear;
+			}
+		}
+
+		&:focus,
+		&:hover {
+			svg {
+				path {
+					fill: $color-white !important;
+				}
+			}
+		}
+	}
+
+	span {
+		color: $color-white;
+		display: inline-block;
+		font-size: rem-calc(14);
+		font-weight: 700;
+	}
+
+	.alertbutton {
+		-webkit-text-decoration-color: rgba(255, 255, 255, 0.4); /* Safari */
+		color: $color-white;
+		font-size: rem-calc(14);
+		margin-left: rem-calc(88);
+		text-decoration-color: rgba(255, 255, 255, 0.4);
+		text-decoration: underline;
+		text-underline-offset: 4px;
+		transition: all 0.2s linear;
+
+		&:hover {
+			-webkit-text-decoration-color: rgba(255, 255, 255, 1); /* Safari */
+			text-decoration-color: rgba(255, 255, 255, 1);
+		}
+	}
+}
+
+// <header>
+.site-header {
+	background: #fff;
+	border-radius: 0 0 5px 5px;
+	padding: rem-calc(20 0);
+	position: relative;
+	width: 100%;
+	z-index: 10;
+
+	@include large {
+		padding: rem-calc(21 0);
+	}
+
+	.strl-rs-btn {
+		position: absolute;
+		top: calc(100% + 2.5rem);
+
+		&.has-offset {
+			top: calc(100% + 6rem);
+		}
+	}
+}
+
+.menu .active > a {
+	background-color: transparent;
+	color: $color-textcolor;
+	text-decoration: underline;
+}
+
+.header-wrapper {
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+}
+
+#logo {
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	display: inline-block;
+	height: 51px;
+	overflow: hidden;
+	text-indent: -99rem;
+	width: 211px;
+
+	@include large {
+		margin-right: 1rem;
+	}
+
+	&.site-7 {
+		background-image: url("../img/rekenkamer-logo.png");
+		height: 60px;
+	}
+}
+
+#menus {
+	height: calc(100vh - #{$m-header-height});
+	left: 0;
+	overflow: scroll;
+	position: absolute;
+	top: $m-header-height;
+	width: 100%;
+	display: none;
+
+	@include large {
+		display: flex;
+		height: auto;
+		justify-content: space-between;
+		overflow: visible;
+		position: inherit;
+		width: 100%;
+		align-items: center;
+	}
+}
+
+// Every <ul> in main menu except for mobile
+ul.menu.dropdown {
+	// Every <li><a> that has a submenu gets an icon
+	> li.is-dropdown-submenu-parent {
+		> a {
+			&::after {
+				content: none !important;
+			}
+
+			> .fa-chevron-down {
+				font-size: 0.8rem;
+				position: absolute;
+				right: 0.4rem !important;
+				top: 50%;
+				transform: translateY(-50%);
+				transition: all $transition;
+			}
+		}
+
+		&:hover,
+		&.is-active {
+			text-decoration: underline;
+
+			> a {
+				color: $color-textcolor;
+
+				> .fa-chevron-down {
+					transform: translateY(-50%) rotate(-180deg);
+				}
+			}
+		}
+	}
+
+	// Every <li> at upper level
+	li {
+		&:hover,
+		&.is-active,
+		&.current-menu-item {
+			> a {
+				text-decoration: underline;
+				text-underline-offset: 4px;
+			}
+		}
+
+		a {
+			color: $color-textcolor;
+			padding: 0.7rem 1rem;
+			position: relative;
+			font-size: rem-calc(15);
+			line-height: rem-calc(18);
+
+			@include tablet {
+				padding: 0rem 1rem;
+			}
+
+			&:hover {
+				text-underline-offset: 4px;
+			}
+		}
+
+		i {
+			font-size: 1.2rem;
+		}
+
+		// Every submenu
+		.submenu {
+			border: 0;
+			border-radius: $border-radius;
+			box-shadow: $shadow;
+
+			.submenu-items-wrap {
+				padding: 1.5rem;
+				position: relative;
+
+				ul {
+					display: flex;
+					flex-direction: column;
+					gap: 1rem;
+				}
+
+				li {
+					&.is-active a,
+					a:active,
+					a:hover {
+						background: transparent;
+						color: $color-primary;
+						font-weight: 700;
+					}
+
+					&.opens-right {
+						a::after {
+							border-color: transparent transparent transparent $color-primary;
+							right: 0;
+						}
+
+						// Submenu of submenu
+						.submenu {
+							left: calc(100% + 1rem);
+							position: absolute;
+						}
+					}
+
+					&.opens-left {
+						a::after {
+							border-color: transparent $color-primary transparent transparent;
+							left: -12px;
+						}
+
+						// Submenu of submenu
+						.submenu {
+							position: absolute;
+							right: calc(100% + 1rem);
+						}
+					}
+
+					&.is-dropdown-submenu-parent {
+						position: relative;
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
+
+	// Makes a full width dropdown menu
+	.fullwidth {
+		// Entire dropdown
+		.is-dropdown-submenu {
+			left: 0;
+			padding: 1rem;
+			position: fixed;
+			top: $header-height !important;
+			width: 100%;
+
+			// Wrapper for the menu items
+			.submenu-items-wrap .menu {
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				margin: 0 auto;
+				max-width: 1200px;
+				width: 100%;
+
+				// Submenu level, these are the columns containing a title and submenu
+				> li {
+					// Optional button styling
+					&.has-btn a {
+						@extend %button;
+						background-color: $color-primary;
+						color: $color-white;
+					}
+
+					// Submenu wrapper
+					.menu {
+						display: block;
+						padding: 0;
+					}
+
+					// Removes standard arrows for dropdowns
+					&.is-dropdown-submenu-parent > a::after,
+					&::before {
+						content: none;
+					}
+
+					// Actual submenu <ul>
+					.submenu {
+						background: transparent;
+						box-shadow: none;
+						margin: 0;
+						position: inherit;
+
+						li,
+						a {
+							border-bottom: 0;
+							color: $color-textcolor;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+#menu .is-drilldown {
+	> ul {
+		position: relative;
+
+		.submenu-items-wrap {
+			> .menu {
+				&.vertical {
+					position: static;
+				}
+			}
+		}
+	}
+}
+
+.mobile-menu {
+	display: flex !important;
+	gap: 1rem;
+
+	@include large {
+		display: none !important;
+	}
+
+	.searchtoggle button,
+	.menutoggle {
+		align-items: center;
+		background-color: $color-primary;
+		color: $color-primary-contrast;
+		border-radius: 100%;
+		display: flex;
+		font-size: rem-calc(18);
+		height: rem-calc(42);
+		justify-content: center;
+		width: rem-calc(42);
+
+		i {
+			@include large {
+				font-size: rem-calc(24);
+			}
+		}
+
+		&:focus-visible {
+			outline: -webkit-focus-ring-color auto 1px;
+		}
+	}
+
+	.searchtoggle {
+		i {
+			color: $color-primary-contrast;
+		}
+	}
+
+	.menutoggle {
+		.menu-icon {
+			height: auto;
+			text-align: center;
+			width: auto;
+
+			&::after {
+				content: none;
+			}
+
+			i {
+				color: $color-primary-contrast;
+				font-weight: 600;
+
+				&.fa-times {
+					display: none;
+				}
+			}
+		}
+
+		&.menu-open {
+			.menu-icon i {
+				&.fa-bars {
+					display: none;
+				}
+
+				&.fa-times {
+					display: block;
+				}
+			}
+		}
+	}
+}
+
+#headersearch {
+	min-width: 190px;
+	position: relative;
+
+	input {
+		background: $color-white;
+		border: 1px solid $color-input-search;
+		border-radius: 4px;
+		color: $color-textcolor;
+		height: rem-calc(51);
+		margin: 0;
+
+		&::placeholder {
+			color: $color-textcolor;
+			font-size: rem-calc(14);
+		}
+
+		&:focus-visible {
+			box-shadow: 0 0 10px rgba($color-gray, 0.4);
+			outline: -webkit-focus-ring-color auto 1px;
+		}
+	}
+
+	button[type="submit"] {
+		cursor: pointer;
+		height: 46px;
+		position: absolute;
+		right: 2px;
+		top: 2px;
+		width: 46px;
+
+		i {
+			font-size: rem-calc(24);
+			color: #757575;
+		}
+
+		&:focus-visible {
+			outline: -webkit-focus-ring-color auto 1px;
+		}
+	}
+}
+
+.admin-bar {
+	.dropdown.menu.medium-horizontal > li.fullwidth > .is-dropdown-submenu {
+		top: 138px !important;
+	}
+
+	.dropdown.menu.medium-horizontal > li > .is-dropdown-submenu {
+		top: 100% !important;
+	}
+
+	.sticky.is-stuck {
+		top: 32px !important;
+	}
+
+	.off-canvas {
+		top: 46px !important;
+	}
+}

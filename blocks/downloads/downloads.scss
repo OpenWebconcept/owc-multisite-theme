@@ -1,0 +1,74 @@
+@use '../../source/scss/base/theme' as *;
+@use '../../source/scss/base/mixins' as *;
+@use '../../source/scss/base/extends' as *;
+@use '../../source/scss/base/functions' as *;
+
+
+.downloads {
+	margin-top: 2rem !important;
+
+	+.downloads {
+		margin-top: -3rem !important;
+	}
+
+	h2 {
+		margin-bottom: 2rem;
+	}
+
+	.downloads-list {
+		margin-left: 0;
+		padding-left: 0;
+
+		.download {
+			background-color: $color-white;
+			border-radius: $border-radius;
+			box-shadow: $shadow;
+			display: block;
+			margin-bottom: rem-calc(21);
+
+			a:not(.overlay-link) {
+				color: $color-textcolor;
+				display: block;
+				font-size: 1rem;
+				font-weight: 700;
+				position: relative;
+
+				span {
+					display: block;
+					font-weight: 400;
+				}
+
+				svg {
+					position: relative;
+					display: block;
+					margin-bottom: 0.5rem;
+
+					@include tablet {
+						display: inline-block;
+						top: 6px;
+						margin-bottom: 0;
+					}
+				}
+
+				i {
+					background-color: $color-tertiary;
+					color: $color-tertiary-contrast;
+					width: 40px;
+					height: 40px;
+					border-radius: 100%;
+					text-align: center;
+					line-height: 40px;
+					font-size: 18px;
+					right: 0;
+					position: absolute;
+					top: 0;
+					bottom: 0;
+				}
+
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+}

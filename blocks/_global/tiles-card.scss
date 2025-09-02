@@ -1,0 +1,63 @@
+@use "../../source/scss/base/theme" as *;
+@use "../../source/scss/base/mixins" as *;
+@use "../../source/scss/base/extends" as *;
+@use "../../source/scss/base/functions" as *;
+
+.tiles-card {
+	position: relative;
+	border-radius: $border-radius;
+	box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.1);
+
+	.card-header {
+		position: relative;
+		overflow: hidden;
+
+		&::after {
+			content: "";
+			position: absolute;
+			inset: 0;
+			background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%);
+		}
+
+		.image {
+			aspect-ratio: 4/3;
+			background-position: center;
+			background-size: cover;
+			object-fit: cover;
+			width: inherit;
+			transition: $transition;
+		}
+
+		.post-meta {
+			position: absolute;
+			bottom: 1rem;
+			left: 1rem;
+			z-index: 1;
+
+			.h3 {
+				color: $color-white;
+			}
+
+			.posttype {
+				background: rgba(0, 23, 89, 0.75);
+				border-radius: 85px;
+				color: $color-white;
+				padding: 0.2rem 0.5rem;
+				font-size: 0.875rem;
+				font-weight: 700;
+				margin-bottom: 0.5rem;
+				display: inline-block;
+			}
+		}
+	}
+
+	&:hover {
+		img {
+			transform: scale(1.1);
+		}
+
+		h3 {
+			text-decoration: underline;
+		}
+	}
+}

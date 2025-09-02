@@ -1,0 +1,57 @@
+@use '../../source/scss/base/theme' as *;
+@use '../../source/scss/base/mixins' as *;
+@use '../../source/scss/base/extends' as *;
+@use '../../source/scss/base/functions' as *;
+
+.information {
+	border-radius: $border-radius;
+
+	h2 {
+		margin-bottom: rem-calc(32);
+	}
+
+	.item {
+		display: flex;
+		position: relative;
+		align-items: center;
+		border-radius: $border-radius;
+
+		.icon {
+			background-color: $color-primary;
+			width: rem-calc(80);
+			height: rem-calc(80);
+			background-repeat: no-repeat;
+			background-position: center;
+		}
+
+		.content {
+			font-weight: 700;
+			position: relative;
+			padding: rem-calc(29 24);
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			flex: 1;
+
+			&::after {
+				content: "\f054";
+				font-family: $icons;
+				margin-left: 2rem;
+				transition: $transition;
+				position: absolute;
+				right: 1.5rem;
+			}
+		}
+
+		&:hover {
+			.content {
+				text-decoration: underline;
+				text-underline-offset: 4px;
+				
+				&:after {
+					margin-right: 0.5rem;
+				}
+			}
+		}
+	}
+}

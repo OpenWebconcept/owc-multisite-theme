@@ -1,0 +1,28 @@
+@use '../../source/scss/base/theme' as *;
+@use '../../source/scss/base/mixins' as *;
+@use '../../source/scss/base/extends' as *;
+@use '../../source/scss/base/functions' as *;
+
+
+.textonly-featured {
+	border-radius: $border-radius;
+	padding: 1.5rem;
+	position: relative;
+
+	h1 {
+		margin-bottom: 1rem;
+
+		@include desktop {
+			margin-bottom: 2rem;
+		}
+	}
+
+	h2 {
+		margin-bottom: rem-calc(16);
+		margin-top: rem-calc(32);
+
+		&:first-of-type {
+			margin-top: 0;
+		}
+	}
+}

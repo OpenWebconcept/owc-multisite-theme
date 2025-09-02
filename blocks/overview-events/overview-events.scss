@@ -1,0 +1,68 @@
+@use "../../source/scss/base/theme" as *;
+@use "../../source/scss/base/mixins" as *;
+
+.overview-events {
+	position: relative;
+
+	h2 {
+		margin-bottom: 1.5rem;
+	}
+
+	.filter-group {
+		border-radius: $border-radius;
+		box-shadow: 0 24px 40px rgba(2, 26, 60, 0.08);
+		overflow: hidden;
+
+		.filter-title {
+			h2 {
+				font-size: 1rem;
+				font-weight: 700;
+				line-height: 1.2rem;
+				padding: 1rem;
+				margin: 0;
+				font-family: $bodytext;
+			}
+		}
+
+		.reset-filter {
+			text-decoration: underline;
+			cursor: pointer;
+			padding: 0 1.5rem 1rem 1rem;
+
+			&:hover {
+				text-decoration: none;
+			}
+		}
+
+		.facetwp-facet {
+			padding: 1.5rem 1rem;
+			margin: 0;
+
+			.facetwp-checkbox {
+				font-size: 1rem;
+				margin-left: 0;
+				line-height: 21px;
+				cursor: pointer;
+
+				.facetwp-counter {
+					display: none;
+				}
+
+				&.checked {
+				}
+			}
+		}
+	}
+
+	.month-wrapper {
+		margin-top: 2.5rem;
+
+		&:first-of-type {
+			margin-top: 0;
+		}
+
+		.month {
+			margin-bottom: 1.5rem;
+		}
+	}
+}

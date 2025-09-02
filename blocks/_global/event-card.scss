@@ -1,0 +1,105 @@
+@use "../../source/scss/base/theme" as *;
+@use "../../source/scss/base/mixins" as *;
+@use "../../source/scss/base/extends" as *;
+@use "../../source/scss/base/functions" as *;
+
+.event-card {
+  position: relative;
+  display: flex;
+  border-radius: $border-radius;
+  padding: 1rem;
+  gap: 1rem;
+  flex-direction: row-reverse;
+  background: $color-white;
+  box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.1);
+  height: 100%;
+
+  &::after {
+    content: "\f054";
+    font-family: $icons;
+    right: 1rem;
+    bottom: 1rem;
+    opacity: 0;
+    transition: $transition;
+    position: absolute;
+  }
+
+  .card-header {
+    position: relative;
+
+    .date {
+      border-radius: $border-radius;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      width: 5rem;
+      height: 5rem;
+      justify-content: center;
+      text-align: center;
+
+      span {
+        display: block;
+
+        &.day {
+          font-size: 1.5rem;
+        }
+
+        &.month {
+          font-size: 0.875rem;
+          font-weight: 400;
+        }
+      }
+
+      .end {
+        border-left: 1px solid $color-tertiary-contrast;
+        padding-left: 5px;
+        margin-left: 5px;
+      }
+    }
+  }
+
+  &:hover {
+    &::after {
+      opacity: 1;
+    }
+
+    h3 {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    h3 {
+      color: $color-textcolor;
+      font-size: 1.125rem;
+      line-height: 21.6px;
+      margin: 0.3rem 0;
+      order: 2;
+    }
+
+    .excerpt {
+      overflow: hidden;
+      order: 3;
+    }
+
+    .time {
+      order: 1;
+    }
+
+    .time,
+    p {
+      font-size: 0.875rem;
+      color: #444444;
+    }
+
+    p {
+      margin-bottom: 0;
+      display: block;
+    }
+  }
+}

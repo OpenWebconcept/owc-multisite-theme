@@ -1,0 +1,52 @@
+@use "../../source/scss/base/theme" as *;
+@use "../../source/scss/base/mixins" as *;
+@use "../../source/scss/base/extends" as *;
+@use "../../source/scss/base/functions" as *;
+
+.featured {
+	h2 {
+		margin-bottom: rem-calc(32);
+	}
+
+	.item {
+		align-items: center;
+		display: flex;
+		gap: 0.5rem;
+		justify-content: space-between;
+		padding: rem-calc(29 24);
+		position: relative;
+
+		&::after {
+			align-items: center;
+			background: $color-quaternary-button-bg;
+			border-radius: 100%;
+			color: $color-quaternary-button-text;
+			content: "\f054";
+			display: flex;
+			font-family: $icons;
+			height: 40px;
+			justify-content: center;
+			min-width: 40px;
+			transition: $transition;
+		}
+
+		.inner {
+			p {
+				margin-bottom: 0;
+			}
+		}
+
+		&:hover {
+			.inner {
+				h3 {
+					text-decoration: underline;
+					text-underline-offset: 4px;
+				}
+			}
+
+			&::after {
+				margin-right: 0.5rem;
+			}
+		}
+	}
+}

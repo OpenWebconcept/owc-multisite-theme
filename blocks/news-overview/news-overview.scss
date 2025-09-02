@@ -1,0 +1,18 @@
+@use '../../source/scss/base/theme' as *;
+@use '../../source/scss/base/mixins' as *;
+@use '../../source/scss/base/extends' as *;
+@use '../../source/scss/base/functions' as *;
+
+.news-overview {
+	.grid-x {
+		&:first-of-type {
+			.cell {
+				@include desktop {
+					&:nth-child(-n+2){
+						width: calc(50% - 1.875rem);
+					}
+				}
+			}
+		}
+	}
+}

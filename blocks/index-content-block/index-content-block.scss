@@ -1,0 +1,43 @@
+@use "../../source/scss/base/theme" as *;
+@use "../../source/scss/base/mixins" as *;
+@use "../../source/scss/base/extends" as *;
+@use "../../source/scss/base/functions" as *;
+
+.index-content-block {
+	.submenu ul {
+		display: flex;
+		flex-direction: column;
+		gap: rem-calc(13);
+		list-style-type: none;
+		margin: 0 0 1rem;
+		padding: 0;
+
+		li {
+			display: flex;
+			flex-direction: row;
+			gap: 0.5rem;
+
+			&::before {
+				content: "\f054";
+				font-family: $icons;
+				font-size: rem-calc(12);
+			}
+
+			a {
+				color: $color-black;
+				font-family: $header;
+				text-decoration: none;
+
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+
+	.button-group {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+}

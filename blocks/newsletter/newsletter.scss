@@ -1,0 +1,27 @@
+@use '../../source/scss/base/theme' as *;
+@use '../../source/scss/base/mixins' as *;
+@use '../../source/scss/base/extends' as *;
+@use '../../source/scss/base/functions' as *;
+
+.newsletter{
+	margin-block: 0;
+	padding-block: 1rem;
+
+	.text {
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+		flex-direction: column;
+		gap: 1rem;
+
+		@include tablet {
+			align-items: center;
+			flex-direction: row;
+		}
+
+		p {
+			margin: 0;
+			font-weight: 700;
+		}
+	}
+}

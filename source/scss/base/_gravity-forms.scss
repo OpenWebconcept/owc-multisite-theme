@@ -1,0 +1,438 @@
+@use 'theme' as *;
+@use 'mixins' as *;
+@use 'extends' as *;
+@use 'functions' as *;
+
+// ------ HOW TO ------
+// All variables can be overwritten in _theme.scss
+// So you DO NOT need to edit this file!
+// --------------------
+$gform-field-margin: 1.5rem !default;
+$gform-icon-size: 0.8rem !default;
+$gform-error-color: $color-alert !default;
+
+$gform-label-margin: 1rem !default;
+$gform-label-font-size: 1rem !default;
+$gform-label-font-weight: 600 !default;
+
+$gform-description-color: $color-textcolor !default;
+$gform-description-size: 0.9rem !default;
+
+$gform-input-background: $color-white !default;
+$gform-input-border: 1px solid $color-gray !default;
+$gform-input-border-radius: $border-radius !default;
+$gform-input-color: $color-black !default;
+$gform-input-height: 55px !default;
+$gform-input-padding: 1rem !default;
+
+$gform-textarea-height: 150px !default;
+
+$gform-checked-background: $color-primary !default;
+$gform-checked-color: $color-white !default;
+
+$gform-checkbox-size: 30px !default;
+$gform-checkbox-radius: $gform-input-border-radius !default;
+
+$gform-radio-size: 30px !default;
+
+$gform-progressbar-background-color: $color-gray !default;
+$gform-progressbar-fill-color: $color-primary !default;
+$gform-progressbar-percentage-color: $color-white !default;
+
+$gform-steps-border: $color-primary !default;
+$gform-steps-color: $color-black !default;
+$gform-steps-active-background: $color-primary !default;
+$gform-steps-active-color: $color-white !default;
+$gform-steps-font-weight: 600 !default;
+
+// Cannot control GF markup
+// scss-lint:disable SelectorFormat, QualifyingElement
+.gform_wrapper {
+	.gform_validation_errors {
+		background: rgba($gform-error-color, 0.05) !important;
+		border-color: $gform-error-color !important;
+
+		.gform_submission_error {
+			color: $gform-error-color !important;
+		}
+	}
+
+	.gform_body {
+		.gfield {
+			margin-bottom: $gform-field-margin;
+
+			// Labels
+			.gfield_label {
+				font-size: $gform-label-font-size;
+				font-weight: $gform-label-font-weight;
+				margin-bottom: $gform-label-margin;
+
+				+ p {
+					margin-bottom: 0;
+				}
+			}
+
+			// Global input styling, mostly to counter Foundation
+			input,
+			textarea,
+			select {
+				margin-bottom: 0;
+			}
+
+			.ginput_complex {
+				align-items: center;
+			}
+
+			// Text inputs
+			.ginput_container_text,
+			.ginput_container_textarea,
+			.ginput_container_number,
+			.ginput_container_name,
+			.ginput_container_address,
+			.ginput_container_phone,
+			.ginput_container_email,
+			.ginput_container_website,
+			.ginput_container_date,
+			.ginput_container_time,
+			.ginput_container_list {
+				input,
+				textarea {
+					border: $gform-input-border;
+					border-radius: $gform-input-border-radius;
+					padding: 0 $gform-input-padding;
+
+					&:focus-visible {
+						outline: -webkit-focus-ring-color auto 1px;
+					}
+				}
+
+				input {
+					height: $gform-input-height;
+					line-height: $gform-input-height;
+				}
+
+				textarea {
+					height: $gform-textarea-height;
+					padding-top: calc($gform-input-padding / 2);
+				}
+			}
+
+			// Select inputs
+			.ginput_container_select,
+			.gfield_time_ampm,
+			.ginput_address_country {
+				min-width: 6rem;
+				position: relative;
+
+				select {
+					background: none !important;
+					border: $gform-input-border;
+					border-radius: $gform-input-border-radius;
+					cursor: pointer;
+					height: $gform-input-height;
+					line-height: $gform-input-height;
+					padding: 0 $gform-input-padding;
+				}
+
+				.dropdown-icon {
+					font-size: $gform-icon-size;
+					pointer-events: none;
+					position: absolute;
+					right: $gform-input-padding;
+					top: 50%;
+					transform: translateY(-50%);
+				}
+
+				&.ginput_right,
+				&.ginput_left {
+					// Fix for half fields
+					.dropdown-icon {
+						right: calc($gform-input-padding * 2);
+					}
+				}
+
+				&.address_country {
+					.dropdown-icon {
+						margin-top: -2.5%;
+					}
+				}
+			}
+
+			// Multi select
+			.ginput_container_multiselect {
+				select {
+					background: none !important;
+					border: $gform-input-border;
+					border-radius: $gform-input-border-radius;
+					cursor: pointer;
+					padding: $gform-input-padding;
+				}
+			}
+
+			// Checkboxes and radios
+			.ginput_container_checkbox,
+			.ginput_container_radio {
+				.gchoice {
+					position: relative;
+
+					label {
+						cursor: pointer;
+						display: flex;
+						margin-bottom: $gform-label-margin;
+						margin-left: 0;
+
+						&:focus-visible {
+							.input-replace {
+								border-color: $color-primary;
+							}
+						}
+					}
+
+					.gfield-choice-input {
+						position: absolute;
+						left: -999em;
+
+						&:focus-visible {
+							+ label {
+								outline: -webkit-focus-ring-color auto 1px;
+								text-decoration: underline;
+
+								.input-replace {
+									border-color: $color-primary;
+								}
+							}
+						}
+					}
+
+					.input-replace {
+						border: $gform-input-border;
+						display: block;
+						margin-right: 1rem;
+						position: relative;
+						transition: background-color $transition;
+
+						&:focus {
+							border-color: $color-primary;
+						}
+					}
+
+					input:checked + label > .input-replace {
+						background-color: $gform-checked-background;
+
+						.check-icon {
+							display: block;
+						}
+					}
+
+					.label-text {
+						align-self: center;
+						line-height: 1;
+					}
+
+					.check-icon {
+						color: $gform-checked-color;
+						display: none;
+						font-size: $gform-icon-size;
+						left: 50%;
+						position: absolute;
+						top: 50%;
+						transform: translate(-50%, -50%);
+					}
+				}
+			}
+
+			.ginput_container_checkbox {
+				.gchoice {
+					.input-replace {
+						border-radius: $gform-checkbox-radius;
+						height: $gform-checkbox-size;
+						min-width: $gform-checkbox-size;
+					}
+				}
+			}
+
+			.ginput_container_radio {
+				.gchoice {
+					.input-replace {
+						border-radius: 50%;
+						height: $gform-radio-size;
+						min-width: $gform-radio-size;
+					}
+				}
+			}
+
+			// Consent
+			// Checkboxes and radios
+			.ginput_container_consent {
+				label {
+					cursor: pointer;
+					display: flex;
+					margin-bottom: $gform-label-margin;
+					margin-left: 0;
+				}
+
+				input[type=checkbox] {
+					position: absolute;
+					left: -999em;
+				}
+
+				.input-replace {
+					border: $gform-input-border;
+					border-radius: $gform-checkbox-radius;
+					display: block;
+					height: $gform-checkbox-size;
+					margin-right: 1rem;
+					min-width: $gform-checkbox-size;
+					position: relative;
+					transition: background-color $transition;
+				}
+
+				input:checked + label > .input-replace {
+					background-color: $gform-checked-background;
+
+					.check-icon {
+						display: block;
+					}
+				}
+
+				.label-text {
+					align-self: center;
+					line-height: 1;
+				}
+
+				.check-icon {
+					color: $gform-checked-color;
+					display: none;
+					font-size: $gform-icon-size;
+					left: 50%;
+					position: absolute;
+					top: 50%;
+					transform: translate(-50%, -50%);
+				}
+			}
+
+			// Name
+			.ginput_container_date {
+				input {
+					width: 100%;
+				}
+			}
+
+			// Descriptions
+			.gfield_description {
+				color: $gform-description-color;
+				font-size: $gform-description-size;
+			}
+
+			// Field errors
+			&.gfield_error {
+				label {
+					color: $gform-error-color;
+				}
+
+				input,
+				textarea,
+				select {
+					border-color: $gform-error-color;
+				}
+
+				.gfield_validation_message {
+					background: none;
+					border: 0;
+					color: $gform-error-color;
+					padding: 0;
+				}
+			}
+		}
+	}
+
+	// Progress bar
+	.gf_progressbar_wrapper {
+		.gf_progressbar_title {
+			color: $gform-description-color !important;
+			font-size: $gform-description-size !important;
+		}
+
+		.gf_progressbar {
+			background-color: $gform-progressbar-background-color !important;
+			border-radius: $gform-input-border-radius !important;
+
+			.gf_progressbar_percentage {
+				background-color: $gform-progressbar-fill-color !important;
+				border-radius: $gform-input-border-radius 0 0 $gform-input-border-radius !important;
+				color: $gform-progressbar-percentage-color !important;
+			}
+		}
+	}
+
+	// Steps
+	.gf_page_steps {
+		.gf_step_number {
+			border-color: $gform-steps-border !important;
+			color: $gform-steps-color !important;
+			font-weight: $gform-steps-font-weight !important;
+		}
+
+		.gf_step_label {
+			color: $gform-steps-color !important;
+			font-weight: $gform-steps-font-weight !important;
+		}
+
+		.gf_step_active {
+			.gf_step_number {
+				background-color: $gform-steps-active-background !important;
+				border-color: $gform-steps-active-background !important;
+				color: $gform-steps-active-color !important;
+			}
+		}
+
+		.gf_step_completed {
+			.gf_step_number {
+				&::before {
+					background-color: $gform-steps-active-background !important;
+					border-color: $gform-steps-active-background !important;
+				}
+
+				&::after {
+					color: $gform-steps-active-color !important;
+				}
+			}
+		}
+	}
+
+	// Form Footer
+	.gform_footer,
+	.gform_page_footer {
+		.gform_ajax_spinner {
+			margin-left: 1rem;
+		}
+
+		.gform_button,
+		.gform_next_button {
+			@extend %button;
+			margin-bottom: 0 !important;
+		}
+
+		.gform_prev_button {
+			border: 0;
+			color: $gform-description-color;
+			padding: 0;
+			text-decoration: underline;
+		}
+	}
+}
+
+// Datepicker
+.gform-theme-datepicker {
+	.ui-datepicker-title {
+		text-align: left !important;
+
+		.ui-datepicker-month,
+		.ui-datepicker-year {
+			background-position: right center !important;
+			min-width: 100px !important;
+			padding: 0 !important;
+			text-align-last: left !important;
+		}
+	}
+}

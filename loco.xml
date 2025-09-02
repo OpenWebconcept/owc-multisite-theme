@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bundle>
+  <domain name="strl">
+    <project>
+      <target>
+        <directory>../../languages/strl</directory>
+      </target>
+      <template>
+        <file>../../languages/strl/strl.pot</file>
+      </template>
+    </project>
+  </domain>
+  <domain name="strl-frontend">
+    <project name="Stuurlui Frontend">
+      <target>
+        <directory>../../languages/strl-frontend</directory>
+      </target>
+      <template>
+        <file>../../languages/strl-frontend/strl-frontend.pot</file>
+      </template>
+    </project>
+  </domain>
+</bundle>

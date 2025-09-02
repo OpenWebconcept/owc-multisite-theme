@@ -1,0 +1,132 @@
+@use "../../source/scss/base/theme" as *;
+@use "../../source/scss/base/mixins" as *;
+@use "../../source/scss/base/functions" as *;
+
+// Can't change the markup for Gravity Forms.
+// scss-lint:disable NestingDepth, QualifyingElement
+
+.faq-select {
+	position: relative;
+
+	h2 {
+		line-height: 2.4rem;
+		margin-bottom: 1rem;
+	}
+
+	.single-article & {
+		.cell {
+			&.large-8 {
+				width: 100%;
+			}
+		}
+	}
+}
+
+.faq-select {
+	details {
+		border-radius: 5px;
+		margin-bottom: 0.9375rem;
+
+		summary {
+			border: 0;
+			border-radius: 5px;
+			cursor: pointer;
+			font-size: rem-calc(16);
+			font-weight: 600;
+			list-style: none;
+			padding: rem-calc(26 62 26 24);
+			position: relative;
+			transition: $transition;
+
+			&::-webkit-details-marker {
+				display: none;
+			}
+
+			&:hover,
+			&:focus-visible {
+				i {
+					background-color: $color-tertiary-contrast;
+					color: $color-tertiary-button-text;
+				}
+			}
+
+			h3,
+			h2,
+			.h2,
+			.h3 {
+				font-size: rem-calc(16);
+				font-weight: 600;
+				margin: 0;
+			}
+
+			> i {
+				background-color: $color-tertiary-button-bg;
+				border-radius: 100%;
+				color: $color-tertiary-button-text;
+				font-size: rem-calc(16);
+				height: 2.5rem;
+				line-height: 40px;
+				margin: 0;
+				position: absolute;
+				right: 1.5rem;
+				text-align: center;
+				top: 1.25rem;
+				transition: $transition;
+				width: 2.5rem;
+
+				+ p {
+					display: none;
+				}
+			}
+
+			&:hover {
+				h3 {
+					text-decoration: underline;
+				}
+
+				i {
+					background-color: $color-tertiary-button-bg-hover;
+					color: $color-tertiary-button-text;
+				}
+			}
+		}
+
+		> div {
+			border: 0;
+			border-radius: 0 0 5px 5px;
+			font-weight: normal;
+			padding: 1.5rem;
+
+			p,
+			ul li,
+			table,
+			ol li {
+				font-size: 1rem;
+			}
+
+			a {
+				text-decoration: underline;
+
+				&:hover {
+					text-decoration: none;
+				}
+			}
+
+			h2,
+			.h2,
+			h3,
+			.h3 {
+				font-size: 1rem;
+				font-weight: 600;
+			}
+		}
+
+		&[open] {
+			summary {
+				> i {
+					transform: rotate(-180deg);
+				}
+			}
+		}
+	}
+}

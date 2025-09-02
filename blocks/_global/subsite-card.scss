@@ -1,0 +1,84 @@
+@use "../../source/scss/base/theme" as *;
+@use "../../source/scss/base/mixins" as *;
+@use "../../source/scss/base/extends" as *;
+@use "../../source/scss/base/functions" as *;
+
+.subsite-card {
+	background-color: $color-white;
+	border-radius: $border-radius;
+	padding: 2rem;
+
+	.card-header {
+		align-items: center;
+		display: flex;
+		flex-direction: column-reverse;
+		gap: 0.5rem;
+
+		.icon-wrapper {
+			border-radius: 9999px;
+			box-shadow: $shadow;
+			height: 4.25rem;
+			position: relative;
+			width: 4.25rem;
+
+			img {
+				height: 100%;
+				object-fit: cover;
+				object-position: center center;
+				width: 100%;
+			}
+		}
+
+		h1,
+		h2 {
+			font-size: 1rem;
+			font-style: normal;
+			line-height: 120%;
+		}
+	}
+
+	.content {
+		margin-top: 1rem;
+
+		.btn {
+			width: 100%;
+		}
+
+		.links-wrapper {
+			margin-top: 1.5rem;
+			width: 100%;
+
+			.links-list {
+				display: flex;
+				flex-direction: row;
+				flex-wrap: wrap;
+				gap: 0.5rem;
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+
+				li a {
+					align-items: center;
+					background-color: $color-primary;
+					border: 1px solid $color-primary;
+					border-radius: calc(#{$border-radius} / 2);
+					color: $color-primary-contrast;
+					display: flex;
+					font-size: 0.8125rem;
+					font-weight: 700;
+					height: rem-calc(27);
+					justify-content: center;
+					padding-left: 0.5rem;
+					padding-right: 0.5rem;
+					transition: $transition;
+
+					&:hover {
+						background-color: $color-primary-button;
+						border-color: $color-primary-button;
+						color: $color-primary-contrast;
+					}
+				}
+			}
+		}
+	}
+}
